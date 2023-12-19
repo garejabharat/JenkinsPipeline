@@ -3,7 +3,7 @@ pipeline{
     tools {nodejs "node"}
     environment{
         imageName = "techwithbk/jenkins_app" 
-        rigistryCredential='techwithbk'
+        rigistryCredential='admin'
         dockerImage = ''
     }
     stages {
