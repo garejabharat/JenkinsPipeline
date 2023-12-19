@@ -2,7 +2,7 @@ pipeline{
     agent any
     tools {nodejs "node"}
     environment{
-        imageName = "techwithbk/jenkins_app" 
+        imageName = "techwithbk/jenkins_apps" 
         rigistryCredential='admin'
         dockerImage = ''
     }
@@ -21,7 +21,7 @@ pipeline{
        stage("Building Image"){
             steps{
                script{
-                dockerImage = docker.build imageName
+                 dockerImage = docker.build imageName
                }
             }
        }
