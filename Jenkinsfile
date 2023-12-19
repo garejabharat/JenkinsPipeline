@@ -2,7 +2,7 @@ pipeline{
     agent any
     tools {nodejs "node"}
     environment{
-        imageName = "techwithbk/react_app" 
+        imageName = "techwithbk/jenkins_app" 
         rigistryCredential='techwithbk'
         dockerImage = ''
     }
