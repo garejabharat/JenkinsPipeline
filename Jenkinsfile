@@ -21,8 +21,9 @@ pipeline{
        stage("Building Image"){
             steps{
                script{
-                dockerImage = docker.build imageName
-               }
+                docker.withRegistry('', registryCredential){ 
+                 dockerImage = docker.build(imageName)
+                } 
             }
        }
        stage("Deploy Image"){
