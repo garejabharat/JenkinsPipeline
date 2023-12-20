@@ -28,12 +28,12 @@ pipeline{
        stage("Deploy Image"){
             steps{
                script{
-                docker.withRegistry("https://registery.hub.docker.com",'dockerhub-creds'){
+                docker.withRegistry ("https://index.docker.io/v1/",'dockerhub-creds'){
                     dockerImage.push("${env.BUILD_NUMBER}") 
                 }
                }
             }
        }
     }
-}
+}   
 
