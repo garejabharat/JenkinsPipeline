@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+    frontend:
+      container_name: techwithbk/jenkins_app
+      build: .
+
+      volumes:
+        - './:/app'
+        - '/app/node_modules'
+      ports:
+        -"3000":"3000"
+
+      stdin_open: true
+      command: npm start
