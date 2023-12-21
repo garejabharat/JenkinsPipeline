@@ -2,7 +2,8 @@ pipeline{
     agent any
     tools {nodejs "node"}
     environment{
-        imageName =  "techwithbk/jenkins_app" 
+        // imageName =  "techwithbk/jenkins_app" 
+        registry = "bharatgareja/docker_jenkins"
         rigistryCredential='dockerhub-creds'
         dockerImage = ''
     }
@@ -21,7 +22,7 @@ pipeline{
        stage("Building Image"){
             steps{
                script{
-                 dockerImage = docker.build imageName
+                 dockerImage = docker.build registry + ":$BUILD_NUMBER"
                }
             }
        }
@@ -29,8 +30,8 @@ pipeline{
                 }       stage("Deploy Image"){
             steps{
                script{
-                docker.withRegistry ("https://index.docker.io/v1/",rigistryCredential){
-                    dockerImage.push("${env.BUILD_NUMBER}") 
+                docker.withRegistry( '', registryCredential ) {
+                dockerImage.push()
                }
             }
        }
