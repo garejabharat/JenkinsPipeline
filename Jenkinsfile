@@ -8,6 +8,7 @@ pipeline{
         dockerImage = ''
     }
     stages {
+
        stage("Install Dependencies"){
             steps{  
                 sh 'npm install'
@@ -27,14 +28,17 @@ pipeline{
             }
        }
 
-                }       stage("Deploy Image"){
+                   
+    stage("Deploy Image"){
             steps{
                script{
                 docker.withRegistry( '', registryCredential ) {
-                dockerImage.push()
-               }
+                    dockerImage.push()
+                }
             }
        }
+    }
+    
     }
 }   
 
