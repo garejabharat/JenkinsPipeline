@@ -4,7 +4,7 @@ pipeline{
     environment{
         // imageName =  "techwithbk/jenkins_app" 
         registry = "bharatgareja/docker_jenkins"
-        rigistryCredential='dockerhub-creds'
+        rigistryCredential='jenkins_cred'
         dockerImage = ''
     }
     stages {
@@ -38,7 +38,7 @@ pipeline{
             }
        }
     }
-    
+
     }
 }   
 
