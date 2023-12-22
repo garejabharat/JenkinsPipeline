@@ -2,7 +2,7 @@ pipeline{
     agent any
     tools {nodejs "node"}
     environment{
-        imageName =  " bharatgareja/jenkins_image" 
+        imageName =  "bharatgareja/jenkins_image" 
         // registry = "bharatgareja/docker_jenkins"
         rigistryCredential="bharatgareja"
         dockerImage = ''
