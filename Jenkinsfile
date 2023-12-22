@@ -32,7 +32,7 @@ pipeline{
     stage("Deploy Image"){
             steps{
                script{
-                docker.withRegistry('http://registry.hub.docker.com', 'dockerhub_cred' ) {
+                docker.withRegistry('https://registry.hub.docker.com', 'dockerhub_cred' ) {
                     dockerImage.push("${env.BUILD_NUMBER}")
                 }
             }
